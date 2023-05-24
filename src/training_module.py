@@ -55,6 +55,9 @@ class AmazonForestClassifier(LightningModule):  # noqa: D101
     def training_step(self, batch, batch_idx):  # noqa: D102
         images, gt_labels = batch
         pr_logits = self(images)
+
+        torch.cuda.empty_cache()
+
         return self._calculate_loss(pr_logits, gt_labels, 'train_')
 
     def validation_step(self, batch, batch_idx):  # noqa: D102
