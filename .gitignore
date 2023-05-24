@@ -1,0 +1,6 @@
+modeling_venv/
+lightning_logs/
+__pycache__/
+data/
+experiments/
+.vscode/

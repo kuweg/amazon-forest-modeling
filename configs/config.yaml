@@ -1,0 +1,35 @@
+project_name: 'AmazonForestClassifier'
+experiment_name: 'exp1'
+experiment_path: 'experiments/'
+num_classes: 17
+n_epochs: 10
+lr: 1e-3
+accelerator: 'gpu'
+device: 0
+monitor_metric: 'val_f1'
+monitor_mode: 'max'
+model_kwargs:
+  model_name: 'resnet18'
+  pretrained: true
+
+optimizer: 'torch.optim.AdamW'
+optimizer_kwargs: { weight_decay: 1e-5 }
+
+scheduler: 'torch.optim.lr_scheduler.CosineAnnealingLR'
+scheduler_kwargs:
+  T_max: 10
+  eta_min: 1e-5
+
+losses:
+  - name: 'bce'
+    weight: 1.0
+    loss_fn: 'torch.nn.BCEWithLogitsLoss'
+    loss_kwargs: {}
+
+data_config:
+  data_path: 'data/'
+  batch_size: 128
+  n_workers: 1
+  train_size: 0.8
+  img_width: 256
+  img_height: 256
