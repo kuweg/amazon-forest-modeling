@@ -1,0 +1,16 @@
+# image: python:3.9
+
+# stages:
+#   - prepare
+#   - lint
+#   - test
+
+# before_script:
+#   - python --version; pip --version
+#   - pip install virtualenv
+#   - virtualenv modeling_venv
+#   - source modeling_venv/bin/activate
+
+# run_linters:
+#   stage: lint
+#   script: 
