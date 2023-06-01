@@ -48,12 +48,8 @@ def main(config: Config,
     zip_archive.extractall(path=data_path)
     
     local_root = os.path.join(data_path, LOCAL_ROOT)
-    
     all_files = os.listdir(local_root)
-    
-    print(local_root)
-    print(data_path)
-    
+        
     for f in all_files:
         shutil.move(os.path.join(local_root, f), data_path)
         
