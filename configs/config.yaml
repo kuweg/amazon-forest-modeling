@@ -2,7 +2,7 @@ project_name: 'AmazonForestClassifier'
 experiment_name: 'exp4'
 experiment_path: 'experiments/'
 num_classes: 17
-n_epochs: 3
+n_epochs: 4
 lr: 1e-3
 accelerator: 'gpu'
 device: 0
