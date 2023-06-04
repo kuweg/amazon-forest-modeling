@@ -14,4 +14,3 @@ before_script:
 run_linters:
   stage: lint
   script: flake8 .
-  only: push
