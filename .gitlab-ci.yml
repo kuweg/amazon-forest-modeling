@@ -1,16 +1,17 @@
-# image: python:3.9
+image: python:3.9
 
-# stages:
-#   - prepare
-#   - lint
-#   - test
+stages:
+  - prepare
+  - lint
 
-# before_script:
-#   - python --version; pip --version
-#   - pip install virtualenv
-#   - virtualenv modeling_venv
-#   - source modeling_venv/bin/activate
+before_script:
+  - python --version; pip --version
+  - pip install virtualenv
+  - virtualenv modeling_venv
+  - source modeling_venv/bin/activate
+  - pip install -r ci_requirements.txt
 
-# run_linters:
-#   stage: lint
-#   script: 
+run_linters:
+  stage: lint
+  script: flake8 .
+  only: push
