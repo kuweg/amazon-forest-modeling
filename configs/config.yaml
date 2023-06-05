@@ -1,5 +1,5 @@
 project_name: 'AmazonForestClassifier'
-experiment_name: 'exp1'
+experiment_name: 'exp5'
 experiment_path: 'experiments/'
 num_classes: 17
 n_epochs: 10

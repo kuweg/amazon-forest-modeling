@@ -1,3 +1,4 @@
+import os
 import typing as tp
 
 from omegaconf import OmegaConf
@@ -43,3 +44,14 @@ class Config(BaseModel):
     def from_yaml(cls, path: str) -> 'Config':
         cfg = OmegaConf.to_container(OmegaConf.load(path), resolve=True)
         return cls(**cfg)
+    
+    def setup_project_path(self, root_path: str) -> None:
+        self.experiment_path = os.path.join(
+            root_path,
+            self.experiment_path,
+            self.experiment_name,
+        )
+
+        self.data_config.data_path = os.path.join(
+            root_path, self.data_config.data_path,
+        )
