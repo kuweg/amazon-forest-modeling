@@ -54,12 +54,10 @@ def main(
                         ' You may use flag `rewrite` or give a new path.',
                     ),
                 )
-            else:
-                pass  # noqa: WPS420
     else:
         os.mkdir(data_path)
 
-    data_archive = wget.download(DATA_ARCHIVE_URL)
+    data_archive = wget.download(''.join(DATA_ARCHIVE_URL))
 
     zip_archive = ZipFile(data_archive)
     zip_archive.extractall(path=data_path)

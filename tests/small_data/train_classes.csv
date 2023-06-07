@@ -1,0 +1,65 @@
+,image_name,tags
+0,train_0,haze primary
+1,train_1,agriculture clear primary water
+2,train_2,clear primary
+3,train_3,clear primary
+4,train_4,agriculture clear habitation primary road
+5,train_5,haze primary water
+6,train_6,agriculture clear cultivation primary water
+7,train_7,haze primary
+8,train_8,agriculture clear cultivation primary
+9,train_9,agriculture clear cultivation primary road
+10,train_10,agriculture clear primary slash_burn water
+11,train_11,clear primary water
+12,train_12,cloudy
+13,train_13,clear primary
+14,train_14,cloudy
+15,train_15,clear primary
+16,train_16,clear primary
+17,train_17,partly_cloudy primary
+18,train_18,clear primary
+19,train_19,agriculture clear primary road
+20,train_20,agriculture clear primary water
+21,train_21,clear primary road water
+22,train_22,partly_cloudy primary
+23,train_23,agriculture clear primary road
+24,train_24,conventional_mine partly_cloudy primary
+25,train_25,clear primary
+26,train_26,cloudy
+27,train_27,agriculture partly_cloudy primary water
+28,train_28,clear primary
+29,train_29,partly_cloudy primary
+30,train_30,clear primary water
+31,train_31,clear cultivation primary
+32,train_32,agriculture clear primary road
+33,train_33,agriculture cultivation partly_cloudy primary
+34,train_34,clear primary
+35,train_35,clear primary
+36,train_36,agriculture clear primary road
+37,train_37,partly_cloudy primary
+38,train_38,clear primary
+39,train_39,clear primary
+40,train_40,agriculture clear cultivation primary
+41,train_41,agriculture clear primary
+42,train_42,clear primary
+43,train_43,bare_ground haze
+44,train_44,clear primary
+45,train_45,clear primary
+46,train_46,bare_ground clear habitation primary
+47,train_47,clear primary water
+48,train_48,clear primary water
+49,train_49,clear primary
+50,train_50,cloudy
+51,train_51,clear primary
+52,train_52,agriculture clear habitation primary road water
+53,train_53,clear primary
+54,train_54,clear primary
+55,train_55,partly_cloudy primary road water
+56,train_56,clear primary water
+57,train_57,artisinal_mine bare_ground clear primary water
+58,train_58,agriculture clear primary road
+59,train_59,agriculture clear habitation primary road
+60,train_60,haze primary
+61,train_61,clear primary
+62,train_62,clear primary water
+63,train_63,agriculture clear primary road

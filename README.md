@@ -92,7 +92,7 @@ python train.py <path/to/config.yaml>
 ```
 dvc pull
 ```
-
+Также его [лог](https://app.clear.ml/projects/16c462cff38f4020a6032b9eed8f3da8/experiments/6d78bdbf0d5d45ecbb7d2ecaa82cf366/output/execution) в ClearML (нужен аккаунт)
 
 Касательно `.ipynb` файлов и редакторов кода. Я пользуюсь `VSCODE`, который имеет сносную поддержку тетрадок и попросит что-нибудь доустановить без вреда для здоровья, однако иногда он может сойти с ума и сломаться.
 

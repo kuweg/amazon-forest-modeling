@@ -43,7 +43,7 @@ def train(config: Config) -> None:  # noqa: D103
         mode=config.monitor_mode,
         save_weights_only=True,
         save_top_k=1,
-        filename='epoch_{{epoch:02d}} - {{{config.monitor_metric}:.3f}}',
+        filename=f'epoch_{{epoch:02d}}-{{{config.monitor_metric}:.3f}}',
     )
 
     trainer = pl.Trainer(

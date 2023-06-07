@@ -5,4 +5,4 @@
 ['remote "dvc_kuweg"']
     url = ssh://91.206.15.25/home/kuweg/dvc_files
     user = kuweg
-    keyfile = C:/Users/kuweg/.ssh/id_rsa.pub
+    keyfile = C:/Users/kuweg/.ssh/id_rsa

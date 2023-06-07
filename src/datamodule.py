@@ -12,7 +12,7 @@ from src.data_splitter import stratify_shuffle_split_subsets
 from src.dataset import AmazonForestDataset
 
 
-class AmazonForestDM(LightningDataModule):  # noqa: D101
+class AmazonForestDM(LightningDataModule):
 
     def __init__(self, config: DataConfig, logger: Logger = None):
         super().__init__()
@@ -33,11 +33,11 @@ class AmazonForestDM(LightningDataModule):  # noqa: D101
         self.valid_dataset: Optional[Dataset] = None
         self.test_dataset: Optional[Dataset] = None
 
-    def prepare_data(self):  # noqa: D102
+    def prepare_data(self):
         _encode_labels(self._data_path)
         _split_and_save_datasets(self._data_path, self._train_size)
 
-    def setup(self, stage: Optional[str] = None):  # noqa: D102
+    def setup(self, stage: Optional[str] = None):
         train_df, valid_df, test_df = _read_datasets(self._data_path)
 
         if stage == 'fit':
@@ -59,7 +59,7 @@ class AmazonForestDM(LightningDataModule):  # noqa: D101
                 transforms=self._valid_transforms,
             )
 
-    def train_dataloader(self) -> DataLoader:  # noqa: D102
+    def train_dataloader(self) -> DataLoader:
         return DataLoader(
             dataset=self.train_dataset,
             batch_size=self._batch_size,
@@ -69,7 +69,7 @@ class AmazonForestDM(LightningDataModule):  # noqa: D101
             drop_last=False,
         )
 
-    def val_dataloader(self) -> DataLoader:  # noqa: D102
+    def val_dataloader(self) -> DataLoader:
         return DataLoader(
             dataset=self.valid_dataset,
             batch_size=self._batch_size,
@@ -79,7 +79,7 @@ class AmazonForestDM(LightningDataModule):  # noqa: D101
             drop_last=False,
         )
 
-    def test_dataloader(self) -> DataLoader:  # noqa: D102
+    def test_dataloader(self) -> DataLoader:
         return DataLoader(
             dataset=self.test_dataset,
             batch_size=self._batch_size,
@@ -113,7 +113,7 @@ def _encode_labels(data_path: str, logger: Logger = None) -> None:
             ),
         )
 
-    tags = df_encoded['tags'].apply(lambda tags: tags.split(' '))
+    tags = df_encoded['tags'].apply(lambda tags: tags.split())
     tags_flatten = [tag for tag_sublist in tags for tag in tag_sublist]
     labels = list(set(tags_flatten))
     df_encoded['tags'] = tags

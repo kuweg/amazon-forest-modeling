@@ -8,7 +8,7 @@ import pandas as pd
 from torch.utils.data import Dataset
 
 
-class AmazonForestDataset(Dataset):  # noqa: D101
+class AmazonForestDataset(Dataset):
     def __init__(
         self,
         df: pd.DataFrame,
@@ -26,7 +26,7 @@ class AmazonForestDataset(Dataset):  # noqa: D101
             self.image_folder,
             '{im_name}.jpg'.format(im_name=row.image_name),
         )
-        labels = np.array(row.drop(['image_name']), dtype='float32')
+        labels = np.array(row.drop(['image_name']), dtype=np.float32)
         image = cv2.imread(image_path)
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 

@@ -1,13 +1,10 @@
-project_name: 'AmazonForestClassifier'
-experiment_name: 'exp13'
-experiment_path: 'experiments/'
 num_classes: 17
-n_epochs: 20
+n_epochs: 1
 lr: 1e-3
 accelerator: 'gpu'
 device: 0
+
 monitor_metric: 'val_f1'
-monitor_mode: 'max'
 model_kwargs:
   model_name: 'resnet18'
   pretrained: true
@@ -27,9 +24,9 @@ losses:
     loss_kwargs: {}
 
 data_config:
-  data_path: 'data/'
+  n_workers: 2
+  data_path: 'small_data/'
   batch_size: 8
-  n_workers: 4
   train_size: 0.8
   img_width: 256
   img_height: 256

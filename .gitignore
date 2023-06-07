@@ -49,6 +49,7 @@ htmlcov
 *.pt
 .dvc/tmp/
 .dvc/cache
+.dvc/plots/confusion.json
 
 # dynamic project forlders
 lightning_logs/

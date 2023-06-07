@@ -8,7 +8,7 @@ from src.helpers import load_object
 
 
 @dataclass
-class Loss(object):  # noqa: D101
+class Loss(object):
     name: str
     weight: float
     loss: nn.Module

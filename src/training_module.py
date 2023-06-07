@@ -8,7 +8,7 @@ from src.metrics import get_metrics
 from src.helpers import load_object
 
 
-class AmazonForestClassifier(LightningModule):  # noqa: D101
+class AmazonForestClassifier(LightningModule):
     def __init__(self, config: Config):
         super().__init__()
         self._config = config
@@ -30,10 +30,10 @@ class AmazonForestClassifier(LightningModule):  # noqa: D101
 
         self.save_hyperparameters(self._config.dict())
 
-    def forward(self, input_x: torch.Tensor) -> torch.Tensor:  # noqa: D102
+    def forward(self, input_x: torch.Tensor) -> torch.Tensor:
         return self._model(input_x)
 
-    def configure_optimizers(self):  # noqa: D102
+    def configure_optimizers(self):
         optimizer = load_object(self._config.optimizer)(
             self._model.parameters(),
             lr=self._config.lr,
@@ -52,34 +52,36 @@ class AmazonForestClassifier(LightningModule):  # noqa: D101
             },
         }
 
-    def training_step(self, batch, batch_idx):  # noqa: D102
+    def training_step(self, batch, batch_idx):
         images, gt_labels = batch
         pr_logits = self(images)
+        # Small trick for fixing memory issues if you will have one
+        # but firstly try to reduce batch size
 
         torch.cuda.empty_cache()
 
         return self._calculate_loss(pr_logits, gt_labels, 'train_')
 
-    def validation_step(self, batch, batch_idx):  # noqa: D102
+    def validation_step(self, batch, batch_idx):
         images, gt_labels = batch
         pr_logits = self(images)
         self._calculate_loss(pr_logits, gt_labels, 'val_')
         pr_labels = torch.sigmoid(pr_logits)
         self._valid_metrics(pr_labels, gt_labels)
 
-    def test_step(self, batch, batch_idx):  # noqa: D102
+    def test_step(self, batch, batch_idx):
         images, gt_labels = batch
         pr_logits = self(images)
         pr_labels = torch.sigmoid(pr_logits)
         self._test_metrics(pr_labels, gt_labels)
 
-    def on_validation_epoch_start(self) -> None:  # noqa: D102
+    def on_validation_epoch_start(self) -> None:
         self._valid_metrics.reset()
 
-    def on_validation_epoch_end(self) -> None:  # noqa: D102
+    def on_validation_epoch_end(self) -> None:
         self.log_dict(self._valid_metrics.compute(), on_epoch=True)
 
-    def on_test_epoch_end(self) -> None:  # noqa: D102
+    def on_test_epoch_end(self) -> None:
         self.log_dict(self._test_metrics.compute(), on_epoch=True)
 
     def _calculate_loss(
