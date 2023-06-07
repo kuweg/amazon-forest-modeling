@@ -101,4 +101,8 @@ dvc pull
 
  ## 7. Тесты
 
- Will be soon...
+ Для запуска тестов выполнить
+
+ ```
+ python -m pytest .\tests\unit\ -v
+ ```
