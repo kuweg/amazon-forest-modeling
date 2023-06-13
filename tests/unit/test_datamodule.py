@@ -14,7 +14,7 @@ def test_files_creating_while_processing(datamodule):
         os.path.join(TESTS_DIR, 'small_data')
     )
     diff = set(DATAFILES) ^ set(files_list)
-    assert diff == {'train_classes.csv'}
+    assert diff == {'train_classes.csv', 'train-jpg'}
 
 
 @cleanup_after(

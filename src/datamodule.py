@@ -177,6 +177,7 @@ def _split_and_save_datasets(
         logger (Logger):
             ClearMl Logger object for logging messages.
     """
+    print(os.path.join(data_path, 'df_encoded.csv'))
     df = pd.read_csv(os.path.join(data_path, 'df_encoded.csv'))
     if logger:
         logger.report_text('Initial dataset: {len_df}'.format(len_df=len(df)))

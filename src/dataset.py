@@ -21,7 +21,6 @@ class AmazonForestDataset(Dataset):
 
     def __getitem__(self, idx: int):  # noqa: D105
         row = self.df.iloc[idx]
-
         image_path = os.path.join(
             self.image_folder,
             '{im_name}.jpg'.format(im_name=row.image_name),

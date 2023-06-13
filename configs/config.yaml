@@ -29,7 +29,7 @@ losses:
 data_config:
   data_path: 'data/'
   batch_size: 8
-  n_workers: 4
+  n_workers: 2
   train_size: 0.8
   img_width: 256
   img_height: 256
