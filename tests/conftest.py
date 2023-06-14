@@ -3,14 +3,13 @@ import os
 from torch import zeros
 from helpers import TESTS_DIR
 from configs.config import Config
-from src.constants import PROJECT_PATH
 from src.datamodule import AmazonForestDM
 from src.training_module import AmazonForestClassifier
 
 
 @pytest.fixture(scope='session')
 def conf():
-    return Config.from_yaml(os.path.join(PROJECT_PATH, 'configs/config.yaml'))
+    return Config.from_yaml(os.path.join(TESTS_DIR, 'test_conf.yaml'))
 
 
 @pytest.fixture
